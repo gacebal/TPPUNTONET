@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModeloTP.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloTPStoreContainer">
+    <EntitySet Name="GerenteSet" EntityType="ModeloTP.Store.GerenteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FactorSet" EntityType="ModeloTP.Store.FactorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoriaSet" EntityType="ModeloTP.Store.CategoriaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProyectoSet" EntityType="ModeloTP.Store.ProyectoSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProyectoFactor" Association="ModeloTP.Store.ProyectoFactor">
+      <End Role="Proyecto" EntitySet="ProyectoSet" />
+      <End Role="Factor" EntitySet="FactorSet" />
+    </AssociationSet>
+    <AssociationSet Name="FactorCategoria" Association="ModeloTP.Store.FactorCategoria">
+      <End Role="Factor" EntitySet="FactorSet" />
+      <End Role="Categoria" EntitySet="CategoriaSet" />
+    </AssociationSet>
+    <AssociationSet Name="GerenteProyecto" Association="ModeloTP.Store.GerenteProyecto">
+      <End Role="Gerente" EntitySet="GerenteSet" />
+      <End Role="Proyecto" EntitySet="ProyectoSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="GerenteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dni" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ponderacion" Type="smallint" Nullable="false" />
+    <Property Name="ProyectoId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoriaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Valor" Type="smallint" Nullable="false" />
+    <Property Name="FactorId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProyectoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="idGerente" Type="smallint" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GerenteId" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Association Name="ProyectoFactor">
+    <End Role="Proyecto" Type="ModeloTP.Store.ProyectoSet" Multiplicity="1" />
+    <End Role="Factor" Type="ModeloTP.Store.FactorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Factor">
+        <PropertyRef Name="ProyectoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FactorCategoria">
+    <End Role="Factor" Type="ModeloTP.Store.FactorSet" Multiplicity="1" />
+    <End Role="Categoria" Type="ModeloTP.Store.CategoriaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categoria">
+        <PropertyRef Name="FactorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GerenteProyecto">
+    <End Role="Gerente" Type="ModeloTP.Store.GerenteSet" Multiplicity="1" />
+    <End Role="Proyecto" Type="ModeloTP.Store.ProyectoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gerente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="GerenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloTP" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModeloTPContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GerenteSet" EntityType="ModeloTP.Gerente" />
+          <EntitySet Name="FactorSet" EntityType="ModeloTP.Factor" />
+          <EntitySet Name="CategoriaSet" EntityType="ModeloTP.Categoria" />
+          <EntitySet Name="ProyectoSet" EntityType="ModeloTP.Proyecto" />
+          <AssociationSet Name="ProyectoFactor" Association="ModeloTP.ProyectoFactor">
+            <End Role="Proyecto" EntitySet="ProyectoSet" />
+            <End Role="Factor" EntitySet="FactorSet" />
+          </AssociationSet>
+          <AssociationSet Name="FactorCategoria" Association="ModeloTP.FactorCategoria">
+            <End Role="Factor" EntitySet="FactorSet" />
+            <End Role="Categoria" EntitySet="CategoriaSet" />
+          </AssociationSet>
+          <AssociationSet Name="GerenteProyecto" Association="ModeloTP.GerenteProyecto">
+            <End Role="Gerente" EntitySet="GerenteSet" />
+            <End Role="Proyecto" EntitySet="ProyectoSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gerente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="dni" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="ModeloTP.GerenteProyecto" FromRole="Gerente" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Factor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="Ponderacion" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="ModeloTP.ProyectoFactor" FromRole="Factor" ToRole="Proyecto" />
+          <Property Name="ProyectoId" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="ModeloTP.FactorCategoria" FromRole="Factor" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Valor" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="ModeloTP.FactorCategoria" FromRole="Categoria" ToRole="Factor" />
+          <Property Name="FactorId" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="idGerente" Type="Int16" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="ModeloTP.ProyectoFactor" FromRole="Proyecto" ToRole="Factor" />
+          <NavigationProperty Name="Gerente" Relationship="ModeloTP.GerenteProyecto" FromRole="Proyecto" ToRole="Gerente" />
+          <Property Name="GerenteId" Type="Int16" Nullable="false" />
+        </EntityType>
+        <Association Name="ProyectoFactor">
+          <End Type="ModeloTP.Proyecto" Role="Proyecto" Multiplicity="1" />
+          <End Type="ModeloTP.Factor" Role="Factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="ProyectoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FactorCategoria">
+          <End Type="ModeloTP.Factor" Role="Factor" Multiplicity="1" />
+          <End Type="ModeloTP.Categoria" Role="Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="FactorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GerenteProyecto">
+          <End Type="ModeloTP.Gerente" Role="Gerente" Multiplicity="1" />
+          <End Type="ModeloTP.Proyecto" Role="Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gerente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="GerenteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloTPStoreContainer" CdmEntityContainer="ModeloTPContainer">
+    <EntitySetMapping Name="GerenteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloTP.Gerente)">
+        <MappingFragment StoreEntitySet="GerenteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloTP.Factor)">
+        <MappingFragment StoreEntitySet="FactorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Ponderacion" ColumnName="Ponderacion" />
+          <ScalarProperty Name="ProyectoId" ColumnName="ProyectoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloTP.Categoria)">
+        <MappingFragment StoreEntitySet="CategoriaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="FactorId" ColumnName="FactorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProyectoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloTP.Proyecto)">
+        <MappingFragment StoreEntitySet="ProyectoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="idGerente" ColumnName="idGerente" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="GerenteId" ColumnName="GerenteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
