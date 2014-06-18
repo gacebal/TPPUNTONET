@@ -161,7 +161,7 @@
           <Property Name="Descripcion" Type="String" Nullable="false" />
           <NavigationProperty Name="Factor" Relationship="ModeloTP.ProyectoFactor" FromRole="Proyecto" ToRole="Factor" />
           <NavigationProperty Name="Gerente" Relationship="ModeloTP.GerenteProyecto" FromRole="Proyecto" ToRole="Gerente" />
-          <Property Name="GerenteId" Type="Int16" Nullable="false" />
+          <Property Name="GerenteId" Nullable="false" Type="Int16" />
         </EntityType>
         <Association Name="ProyectoFactor">
           <End Type="ModeloTP.Proyecto" Role="Proyecto" Multiplicity="1" />
