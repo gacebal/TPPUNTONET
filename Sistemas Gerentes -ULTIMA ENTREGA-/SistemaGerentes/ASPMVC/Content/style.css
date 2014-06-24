@@ -1,0 +1,357 @@
+/*  This template was created by Mantis-a [http://www.mantisa.cz/]. For more templates visit Free website templates [http://www.mantisatemplates.com/]. */
+
+
+
+/* CSS Document */
+
+
+/* General */
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html {
+height: 100%;
+font-size: 62.5%;
+}
+
+body {
+height: 100%;
+text-align: center;
+font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+background: #242424 url('../img/bg.gif') repeat-x 0 0;
+min-width: 980px;
+}
+
+a:link, a:visited {
+color: #AFBC25;
+text-decoration: underline;
+font-weight: bold;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+.cleaner {
+clear: both;
+height: 0;
+font-size: 0;
+visibility: hidden;
+content: ' ';
+}
+
+.noscreen {
+display: none;
+}
+
+.hidden { /* Skip menu */
+position: absolute;
+top: -10000px;
+left: 0;
+width: 1px;
+height: 1px;
+overflow: hidden;
+}
+
+
+/* Paragraphs, headings, ... */
+
+p {
+line-height: 170%;
+margin-bottom: 10px;
+color: #FDFDFD;
+}
+
+p.more {
+float: right;
+display: inline;
+margin-right: 7px;
+}
+
+p.more a, p.more a:visited {
+font-weight: normal;
+}
+
+h1 {
+font-size: 2.2em;
+font-weight: normal;
+color: #FFFFFF;
+text-align: left;
+padding: 43px 0 4px 0;
+letter-spacing: 1px;
+background: url('../img/h1-bg.gif') repeat-x 0 100%;
+width: 50%;
+}
+
+h1 a:link, h1 a:visited {
+font-weight: normal;
+text-decoration: none;
+color: #FFFFFF;
+}
+
+h2 {
+font-size: 1.4em;
+font-family: Georgia, "Times New Roman", Times, serif;
+font-weight: normal;
+color: #FFFFFF;
+text-align: left;
+margin: 4px 0 0 0;
+letter-spacing: 1px;
+}
+
+h3 {
+font-size: 1.4em;
+font-family: Georgia, "Times New Roman", Times, serif;
+font-weight: normal;
+color: #FDFDFD;
+letter-spacing: 1px;
+background: url('../img/h3-bg.gif') no-repeat 0 54%;
+padding-left: 18px;
+margin-bottom: 7px;
+}
+
+address {
+}
+
+
+/* Images */
+
+img.image-main {
+border: 1px solid #AFBC25;
+margin: 0.2em 0 0.6em 0;
+}
+
+
+/* Header */
+
+#header {
+width: 980px;
+height: 178px;
+position: relative;
+margin: 0 auto;
+text-align: left;
+}
+
+ul#navigation {
+float: right;
+margin: 8px 1px 0 0;
+display: inline;
+color: #FFFFFF;
+}
+
+ul#navigation li {
+float: left;
+display: inline;
+list-style-type: none;
+text-align: center;
+font-size: 0.9em;
+}
+
+ul#navigation li a, ul#navigation li a:visited {
+text-decoration: none;
+color: #FFFFFF;
+font-weight: normal;
+}
+
+ul#navigation li a:hover {
+text-decoration: underline;
+}
+
+li#house {
+background: url('../img/house.gif') no-repeat 0 1px;
+padding-left: 24px;
+}
+
+li#house a {
+margin-right: 16px;
+}
+
+li#sitemap {
+background: url('../img/sitemap.gif') no-repeat 0 2px;
+padding-left: 24px;
+margin-left: 16px;
+}
+
+li#sitemap a {
+margin-right: 16px;
+}
+
+li#envelope {
+background: url('../img/envelope.gif') no-repeat 0 2px;
+padding-left: 23px;
+margin-left: 16px;
+}
+
+
+/* Search form */
+
+form.searching {
+width: 204px;
+position: absolute;
+top: 43px;
+right: 1px;
+}
+
+form.searching fieldset {
+border: 0;
+}
+
+#picture-input {
+position: absolute; 
+top: 0;
+left: 0;
+overflow: hidden;
+width: 171px;
+height: 26px;
+background: #FAFFE5 url('../img/input-bg.gif') no-repeat 0 0;
+border: 0;
+}
+
+#picture-input input {
+position: relative;
+top: 5px;
+left: 10px;
+width: 160px;
+border: 0;
+letter-spacing: 1px;
+background-color: #FAFFE5;
+}
+
+form.searching input.hledat {
+letter-spacing: 1px;
+padding-left: 0;
+font-weight: bold;
+color: #FFFFFF;
+position: absolute;
+top: 0;
+right: 0;
+}
+
+form.searching label {
+display: none;
+}
+
+
+/* Menu */
+
+#menu {
+position: absolute;
+top: 145px;
+right: 1px;
+}
+
+#menu li {
+float: left;
+display: inline;
+list-style-type: none;
+}
+
+#menu li a {
+float: left;
+display: inline;
+list-style-type: none;
+text-align: center;
+color: #FFFFFF;
+font-size: 1.1em;
+text-decoration: underline;
+padding: 0 1.1em;
+height: 32px;
+line-height: 32px;
+margin-left: 3px;
+background: #242424 url('../img/li-bg.gif') repeat-x 0 0;
+border: 1px solid black;
+border-bottom: none;
+}
+
+#menu li a:hover {
+color: #FFFFFF;
+text-decoration: none;
+background: #242424;
+border: 1px solid #222222;
+border-bottom: none;
+}
+
+#menu li a.active {
+background: #232323 url('../img/li-bg-hover.gif') repeat-x 0 0;
+color: #FFFFFF;
+text-decoration: none;
+border: 1px solid #2D4A00;
+border-bottom: none;
+}
+
+
+/* 3 columns layout */
+
+#content {
+font-size: 0.9em;
+width: 980px;
+margin: 23px auto 0 auto;
+text-align: left;
+background: #242424 url('../img/content-bg.gif') repeat-y 0 0;
+}
+
+#column-1 {
+float: right;
+width: 650px;
+}
+
+#column-1 #column-11 {
+float: left;
+width: 330px;
+}
+
+#column-1 #column-12 {
+float: right;
+width: 296px;
+}
+
+#column-2 {
+float: left;
+width: 300px;
+}
+
+
+/* Footer */
+
+#footer {
+width: 970px;
+height: 80px;
+margin: 60px auto 0 auto;
+border-top: 1px solid #404040;
+}
+
+p.footer-left {
+float: left;
+width: 465px;
+color: #FFFFFF;
+text-align: left;
+margin: 9px 0 0 15px;
+display: inline;
+}
+
+p.footer-left a, p.footer-left a:visited {
+color: #FFFFFF;
+font-weight: normal;
+}
+
+p.footer-right {
+float: right;
+width: 465px;
+color: #999999;
+text-align: right;
+margin: 9px 15px 0 0;
+display: inline;
+}
+
+p.footer-right a, p.footer-right a:visited {
+color: #999999;
+font-weight: normal;
+}
+
+p.footer-right a:hover {
+color: #FFFFFF;
+font-weight: normal;
+}

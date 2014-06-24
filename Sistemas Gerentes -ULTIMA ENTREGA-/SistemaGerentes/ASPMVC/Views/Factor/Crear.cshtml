@@ -1,0 +1,43 @@
+﻿@model ASPMVC.Models.FactorModel
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crear</h2>
+
+@using (Html.BeginForm("Crear", "Factor", FormMethod.Post))
+{
+    @*@Html.ValidationSummary()*@
+
+    <fieldset>
+        <legend>Formulario de registro</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Nombre)
+                @Html.TextBoxFor(m => m.Nombre)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Descripcion)
+                @Html.TextBoxFor(m => m.Descripcion)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Ponderacion)
+                @Html.TextBoxFor(m => m.Ponderacion)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Categoria1)
+                @Html.TextBoxFor(m => m.Categoria1)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Categoria2)
+                @Html.TextBoxFor(m => m.Categoria2)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Categoria3)
+                @Html.TextBoxFor(m => m.Categoria3)
+            </li>
+        </ol>
+        <input type="submit" value="Registrarse" />
+    </fieldset>
+}

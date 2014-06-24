@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <!-- This template was created by Mantis-a [http://www.mantisa.cz/]. For more templates visit Free website templates [http://www.mantisatemplates.com/]. -->
+    <meta name="Description" content="..." />
+    <meta name="Keywords" content="..." />
+    <meta name="robots" content="all,follow" />
+    <meta name="author" content="..." />
+    <meta name="copyright" content="Mantis-a [http://www.mantisa.cz/]" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection, tv" />
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="css/style-ie.css" media="screen, projection, tv" /><![endif]-->
+    <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Website name | Homepage</title>
+</head>
+<body>
+    <!-- Header -->
+    @*<div id="header">
+        <ul id="navigation">
+            <li id="house"><a href="#">Homepage</a>|</li>
+            <li id="sitemap"><a href="#">Sitemap</a>|</li>
+            <li id="envelope"><a href="#">Contact us</a></li>
+        </ul>
+        <!-- Your website name  -->
+        <h1><a href="#">MY DELICIOUS SITE</a></h1>
+        <!-- Your website name end -->
+        <!-- Your slogan -->
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <!-- Your slogan end -->
+        <!-- Search form -->
+        <form class="searching" action="">
+            <fieldset>
+                <label></label>
+                <div id="picture-input">
+                    <input type="text" class="search" onfocus="if(this.value==this.defaultValue)this.value=''"
+                           onblur="if(this.value=='')this.value=this.defaultValue" value="Search&hellip;" />
+                </div>
+                <input class="hledat" type="image" src="img/search-button.gif" name="" value="Search" alt="Search" />
+            </fieldset>
+        </form>
+        <!-- Search form end -->
+        <!-- Menu -->
+        <a href="#skip-menu" class="hidden">Skip menu</a>
+        <ul id="menu">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>*@
+        <!-- Menu end -->
+    </div>
+    <!-- Header end -->
+
+    <hr class="noscreen" />
+    <div id="skip-menu"></div>
+
+    <div id="content">
+        <!-- Middle and right column wrapper-->
+        <div id="column-1">
+            <!-- Middle column -->
+            <div id="column-11">
+                <h3>CREAR FACTOR</h3>
+                <img src="Images/parche-bordado-letra-c.jpg" alt="foto" width="280" height="119" class="image-main" />
+                <p>
+                    Aqui podemos dar de alta un nuevo Factor junto con sus categorias y su correspondiente valor.
+                </p>
+                @*<p class="more"><a href="#">Proceder &rarr;</a></p>*@
+                @Html.ActionLink("Proceder", "Crear", "Factor")
+                <div class="cleaner">&nbsp;</div>
+                @*<h3>Lorem ipsum dolor</h3>*@
+                @*<p>
+                    Lacinia pulvinar orci Aliquam adipiscing turpis id Aenean eu wisi nec. Vitae sit hac augue
+                    vestibulum id neque condimentum pede ultrices Phasellus.
+                </p>*@
+            </div>
+            <!-- Middle column end -->
+            <!-- Right column -->
+            <div id="column-12">
+                <h3>ELIMINAR FACTOR</h3>
+                <img src="Images/parche-bordado-letra-e.jpg" alt="foto" width="280" height="119" class="image-main" />
+                <p>
+                    Aqui podemos dar de baja un factor de modo que ya no intervenga en posteriores proyectos que sean caracterizados.
+                </p>
+                @*<p class="more"><a href="#">Proceder &rarr;</a></p>*@
+                @Html.ActionLink("Proceder", "Eliminar", "Factor")
+                <div class="cleaner">&nbsp;</div>
+                @*<h3>Lorem ipsum dolor</h3>
+                <p>
+                    Lacinia pulvinar orci Aliquam adipiscing turpis id Aenean eu wisi nec. Vitae sit hac augue
+                    vestibulum id neque condimentum pede ultrices Phasellus.
+                </p>*@
+            </div>
+            <!-- Right column end -->
+        </div>
+        <!-- Middle and right column wrapper end-->
+        <!-- Left column -->
+        <div id="column-2">
+            <h3>ACTUALIZAR UN FACTOR</h3>
+            <img src="Images/parche-bordado-letra-a.jpg" alt="foto" width="280" height="119" class="image-main" />
+            <p>
+                Aqui podemos modificar los factores junto con sus caracteristicas correspondientes de modo de adaptarlos a los proyectos que van a ser caracterizados posteriormente.
+            </p>
+            @*<p class="more"><a href="#">Proceder &rarr;</a></p>*@
+            @Html.ActionLink("Proceder", "Actualizar", "Factor")
+            <div class="cleaner">&nbsp;</div>
+            @*<h3>Lorem ipsum dolor</h3>
+            <p>
+                Lacinia pulvinar orci Aliquam adipiscing turpis id Aenean eu wisi nec. Vitae sit hac augue
+                vestibulum id neque condimentum pede ultrices Phasellus.
+            </p>*@
+        </div>
+        <!-- Right column end -->
+        <div class="cleaner">&nbsp;</div>
+    </div>
+    <hr class="noscreen" />
+
+    <!-- Footer -->
+    <div id="footer">
+        <div id="footer-in">
+            <p class="footer-left">&copy; <a href="#">SISTEMA GERENTES - FACTORES</a>, 2014.</p>
+            <p class="footer-right">
+                @*<a href="http://www.mantisatemplates.com/">Free web templates</a>
+                by <a href="http://www.mantisa.cz/">Mantis-a</a>*@
+            </p>
+        </div>
+    </div>
+    <!-- Footer end -->
+</body>
+</html>
